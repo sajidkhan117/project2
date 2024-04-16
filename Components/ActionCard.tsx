@@ -1,4 +1,4 @@
-import { Linking, ScrollView, StyleSheet, Text, View, Image } from 'react-native'
+import { TouchableOpacity , Linking, ScrollView, StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
 
 export default function ActionCard() {
@@ -11,7 +11,7 @@ export default function ActionCard() {
             <Text style={styles.headingText}>Blog Card</Text>
             <View style={[styles.card, styles.elevatedCard]} >
                 <View style={styles.headingContainer} >
-                    <Text style={styles.headingText}>Blog Title</Text>
+                    <Text style={styles.headerText}>Blog Title</Text>
                 </View>
 
                 <Image source={{
@@ -30,10 +30,23 @@ export default function ActionCard() {
                 </View>
 
                 <View style={styles.FooterContainer} >
-                    <Text numberOfLines={3}>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident porro fugit odit eaque magni repellat adipisci voluptas blanditiis quae repudiandae perspiciatis consectetur mollitia maiores, enim esse pariatur quaerat, laudantium ad.
-
+                   <TouchableOpacity
+                     onPress={() => {openWebsite('https://www.techradar.com/news/the-best-free-blogging-sites')}}
+                   >
+                    <Text style={styles.SocailLinks} >
+                        Read More
                     </Text>
+                   </TouchableOpacity>
+
+                   <TouchableOpacity
+                     onPress={() => {openWebsite('https://www.instagram.com/codewithpushtoon/')}}
+                   >
+                    <Text style={styles.SocailLinks} >
+                            Follow me
+                    </Text>
+                   </TouchableOpacity>
+
+                   
                 </View>
 
 
@@ -46,18 +59,71 @@ export default function ActionCard() {
 }
 
 const styles = StyleSheet.create({
-    headingText: {},
-    card: {},
-    elevatedCard: {},
-    headingContainer: {},
+    headingText: {
+        fontSize : 24,
+        fontWeight : 'bold',
+        paddingHorizontal : 8,
+
+    },
+    card: {
+        width : 350,
+        height : 400,
+        borderRadius: 6,
+        marginVertical : 12,
+        marginHorizontal : 16,
+     
+
+    },
+    elevatedCard: {
+        backgroundColor: "#ffe1e1",
+        elevation : 3,
+        shadowOffset: {
+            width : 1,
+            height :1,
+          },
+          
+        shadowColor : "#ed0000",
+        
+        shadowOpacity: 0.9,
+
+    },
+    headingContainer: {
+        height : 40,
+        flexDirection: "row",
+        justifyContent: 'center',
+        alignItems : 'center',
+    },
+    headerText : {
+        color : 'black',
+        fontSize : 15,
+        fontWeight : '600',
+    },
     cardImage: {
-        height: 200
+        height: 200,
     },
     bodyContainer: {
         marginBottom: 9,
         padding: 10,
     },
 
-    FooterContainer : {},
+    FooterContainer : {
+        padding: 8,
+        flexDirection : 'row',
+        alignItems : 'center',
+        justifyContent : 'space-around'
+    },
+   
+    SocailLinks : {
+        fontSize : 16,
+        fontWeight : '600',
+        color : 'black',
+        backgroundColor: "white",
+        padding: 8,
+        borderRadius : 10,
+        paddingHorizontal : 20, 
+        paddingVertical : 8,
+    
+
+    },
 
 })
